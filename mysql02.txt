@@ -1,0 +1,9 @@
+mysql>
+----------------------------------------------
+show databases;
+-----------------------------------------------
+Mac:
+./mysql -u root -p < ~/developer/class2.sql
+
+Windows:
+mysql -u root -p < c:\brad\class2.sql
