@@ -9,7 +9,7 @@ Windows:
 mysql -u root -p < c:\brad\class2.sql
 -----------------------------------------------
 > use class2;
-> select databases();
+> select database();
 +------------+
 | database() |
 +------------+
@@ -26,3 +26,12 @@ mysql -u root -p < c:\brad\class2.sql
 1 row in set (0.01 sec)
 
 -----------------------------------------------
+> create database db1;
+Query OK, 1 row affected (0.00 sec)
+> drop database db1;
+
+> create database db1;
+Query OK, 1 row affected (0.00 sec)
+> show tables;
+Empty set (0.00 sec)
+
