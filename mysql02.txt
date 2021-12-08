@@ -7,3 +7,22 @@ Mac:
 
 Windows:
 mysql -u root -p < c:\brad\class2.sql
+-----------------------------------------------
+> use class2;
+> select databases();
++------------+
+| database() |
++------------+
+| class2     |
++------------+
+1 row in set (0.00 sec)
+
+> show tables;
++------------------+
+| Tables_in_class2 |
++------------------+
+| students         |
++------------------+
+1 row in set (0.01 sec)
+
+-----------------------------------------------
