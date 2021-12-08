@@ -4,3 +4,8 @@ MAC:
 3. ./mysql -u root -p
 4. > quit
 --------------------------------------------
+Windows:
+1. 命令提示字元
+2. cd C:\MAMP\bin\mysql\bin
+3. mysql -u root -p
+> quit
