@@ -211,3 +211,112 @@ mysql> SELECT FirstName, LastName FROM Employees WHERE LastName >= 'N' ORDER BY 
 +-----------+----------+
 2 rows in set (0.01 sec)
 
+SELECT 欄位 FROM 資料表 WHERE 條件式 ORDER BY 項目 DESC;
+
+列出低於庫存量的產品有哪些(ProductName, UnitsInStock, ReorderLevel)
+
+mysql> SELECT ProductName, UnitsInStock, ReorderLevel FROM Products WHERE UnitsInStock < ReorderLevel ;
++---------------------------+--------------+--------------+
+| ProductName               | UnitsInStock | ReorderLevel |
++---------------------------+--------------+--------------+
+| Chang                     |           17 |           25 |
+| Aniseed Syrup             |           13 |           25 |
+| Queso Cabrales            |           22 |           30 |
+| Sir Rodney's Scones       |            3 |            5 |
+| Nord-Ost Matjeshering     |           10 |           15 |
+| Gorgonzola Telino         |            0 |           20 |
+| Mascarpone Fabioli        |            9 |           25 |
+| Gravad lax                |           11 |           25 |
+| Ipoh Coffee               |           17 |           25 |
+| Rogede sild               |            5 |           15 |
+| Chocolade                 |           15 |           25 |
+| Maxilaku                  |           10 |           15 |
+| Gnocchi di nonna Alice    |           21 |           30 |
+| Wimmers gute Semmelkndel  |           22 |           30 |
+| Louisiana Hot Spiced Okra |            4 |           20 |
+| Scottish Longbreads       |            6 |           15 |
+| Outback Lager             |           15 |           30 |
+| Longlife Tofu             |            4 |            5 |
++---------------------------+--------------+--------------+
+18 rows in set (0.00 sec)
+
+mysql> SELECT ProductName, UnitsOnOrder,  UnitsInStock, ReorderLevel FROM Products WHERE UnitsInStock < ReorderLevel ;
++---------------------------+--------------+--------------+--------------+
+| ProductName               | UnitsOnOrder | UnitsInStock | ReorderLevel |
++---------------------------+--------------+--------------+--------------+
+| Chang                     |           40 |           17 |           25 |
+| Aniseed Syrup             |           70 |           13 |           25 |
+| Queso Cabrales            |           30 |           22 |           30 |
+| Sir Rodney's Scones       |           40 |            3 |            5 |
+| Nord-Ost Matjeshering     |            0 |           10 |           15 |
+| Gorgonzola Telino         |           70 |            0 |           20 |
+| Mascarpone Fabioli        |           40 |            9 |           25 |
+| Gravad lax                |           50 |           11 |           25 |
+| Ipoh Coffee               |           10 |           17 |           25 |
+| Rogede sild               |           70 |            5 |           15 |
+| Chocolade                 |           70 |           15 |           25 |
+| Maxilaku                  |           60 |           10 |           15 |
+| Gnocchi di nonna Alice    |           10 |           21 |           30 |
+| Wimmers gute Semmelkndel  |           80 |           22 |           30 |
+| Louisiana Hot Spiced Okra |          100 |            4 |           20 |
+| Scottish Longbreads       |           10 |            6 |           15 |
+| Outback Lager             |           10 |           15 |           30 |
+| Longlife Tofu             |           20 |            4 |            5 |
++---------------------------+--------------+--------------+--------------+
+18 rows in set (0.00 sec)
+
+mysql> SELECT ProductName, UnitsOnOrder,  UnitsInStock, ReorderLevel FROM Products WHERE UnitsInStock < ReorderLevel 
+    ->  AND UnitsOnOrder > UnitsInStock ;
++---------------------------+--------------+--------------+--------------+
+| ProductName               | UnitsOnOrder | UnitsInStock | ReorderLevel |
++---------------------------+--------------+--------------+--------------+
+| Chang                     |           40 |           17 |           25 |
+| Aniseed Syrup             |           70 |           13 |           25 |
+| Queso Cabrales            |           30 |           22 |           30 |
+| Sir Rodney's Scones       |           40 |            3 |            5 |
+| Gorgonzola Telino         |           70 |            0 |           20 |
+| Mascarpone Fabioli        |           40 |            9 |           25 |
+| Gravad lax                |           50 |           11 |           25 |
+| Rogede sild               |           70 |            5 |           15 |
+| Chocolade                 |           70 |           15 |           25 |
+| Maxilaku                  |           60 |           10 |           15 |
+| Wimmers gute Semmelkndel  |           80 |           22 |           30 |
+| Louisiana Hot Spiced Okra |          100 |            4 |           20 |
+| Scottish Longbreads       |           10 |            6 |           15 |
+| Longlife Tofu             |           20 |            4 |            5 |
++---------------------------+--------------+--------------+--------------+
+14 rows in set (0.00 sec)
+
+mysql> SELECT ProductName, UnitsOnOrder,  UnitsInStock, ReorderLevel FROM Products WHERE UnitsInStock < ReorderLevel OR UnitsOnOrder > UnitsInStock;
++---------------------------+--------------+--------------+--------------+
+| ProductName               | UnitsOnOrder | UnitsInStock | ReorderLevel |
++---------------------------+--------------+--------------+--------------+
+| Chang                     |           40 |           17 |           25 |
+| Aniseed Syrup             |           70 |           13 |           25 |
+| Queso Cabrales            |           30 |           22 |           30 |
+| Sir Rodney's Scones       |           40 |            3 |            5 |
+| Nord-Ost Matjeshering     |            0 |           10 |           15 |
+| Gorgonzola Telino         |           70 |            0 |           20 |
+| Mascarpone Fabioli        |           40 |            9 |           25 |
+| Gravad lax                |           50 |           11 |           25 |
+| Ipoh Coffee               |           10 |           17 |           25 |
+| Rogede sild               |           70 |            5 |           15 |
+| Chocolade                 |           70 |           15 |           25 |
+| Maxilaku                  |           60 |           10 |           15 |
+| Gnocchi di nonna Alice    |           10 |           21 |           30 |
+| Wimmers gute Semmelkndel  |           80 |           22 |           30 |
+| Louisiana Hot Spiced Okra |          100 |            4 |           20 |
+| Scottish Longbreads       |           10 |            6 |           15 |
+| Outback Lager             |           10 |           15 |           30 |
+| Longlife Tofu             |           20 |            4 |            5 |
++---------------------------+--------------+--------------+--------------+
+18 rows in set (0.00 sec)
+
+所有的訂單中,超過客戶需求日期才寄出的訂單
+mysql> SELECT OrderID, CustomerID, RequiredDate, ShippedDate FROM Orders
+    -> WHERE ShippedDate > RequiredDate;
+
+mysql> SELECT OrderID, CustomerID, RequiredDate, ShippedDate FROM Orders WHERE ShippedDate > RequiredDate
+    -> ORDER BY CustomerID;
+
+
