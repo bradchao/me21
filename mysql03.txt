@@ -201,3 +201,13 @@ mysql> SELECT FirstName, LastName, City, Region FROM Employees WHERE Region IS N
 | Laura     | Callahan  | Seattle  | WA     |
 +-----------+-----------+----------+--------+
 5 rows in set (0.00 sec)
+
+mysql> SELECT FirstName, LastName FROM Employees WHERE LastName >= 'N' ORDER BY LastName;
++-----------+----------+
+| FirstName | LastName |
++-----------+----------+
+| Margaret  | Peacock  |
+| Michael   | Suyama   |
++-----------+----------+
+2 rows in set (0.01 sec)
+
