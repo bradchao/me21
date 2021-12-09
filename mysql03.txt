@@ -1,0 +1,133 @@
+1. 下載 northwind.sql
+2. 檢視內容 => 沒有 create database 的程序 => 直接 create table
+3. 現在我的資料庫 Server 建立一個空的資料庫
+4. mysql -u root -p
+5. > create database xxxxx;
+6. > quit;
+7. 回到命令列來進行匯入
+8. mysql -u root -p xxxxx < ~/developer/northwind.sql
+--------------------------------------------------------------
+> SELECT * FROM Employees\G;
+
+mysql> SELECT 'Hello, World';
++--------------+
+| Hello, World |
++--------------+
+| Hello, World |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT 10 + 3;
++--------+
+| 10 + 3 |
++--------+
+|     13 |
++--------+
+1 row in set (0.01 sec)
+
+mysql> SELECT 10 - 3;
++--------+
+| 10 - 3 |
++--------+
+|      7 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> SELECT 10 * 3;
++--------+
+| 10 * 3 |
++--------+
+|     30 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> SELECT 10 / 3;
++--------+
+| 10 / 3 |
++--------+
+| 3.3333 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> SELECT 10 DIV 3;
++----------+
+| 10 DIV 3 |
++----------+
+|        3 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> DESC Employees;
++-----------------+--------------+------+-----+---------+----------------+
+| Field           | Type         | Null | Key | Default | Extra          |
++-----------------+--------------+------+-----+---------+----------------+
+| EmployeeID      | int(11)      | NO   | PRI | NULL    | auto_increment |
+| LastName        | varchar(20)  | NO   | MUL | NULL    |                |
+| FirstName       | varchar(10)  | NO   |     | NULL    |                |
+| Title           | varchar(30)  | YES  |     | NULL    |                |
+| TitleOfCourtesy | varchar(25)  | YES  |     | NULL    |                |
+| BirthDate       | datetime     | YES  |     | NULL    |                |
+| HireDate        | datetime     | YES  |     | NULL    |                |
+| Address         | varchar(60)  | YES  |     | NULL    |                |
+| City            | varchar(15)  | YES  |     | NULL    |                |
+| Region          | varchar(15)  | YES  |     | NULL    |                |
+| PostalCode      | varchar(10)  | YES  | MUL | NULL    |                |
+| Country         | varchar(15)  | YES  |     | NULL    |                |
+| HomePhone       | varchar(24)  | YES  |     | NULL    |                |
+| Extension       | varchar(4)   | YES  |     | NULL    |                |
+| Notes           | mediumtext   | NO   |     | NULL    |                |
+| ReportsTo       | int(11)      | YES  | MUL | NULL    |                |
+| PhotoPath       | varchar(255) | YES  |     | NULL    |                |
+| Salary          | float        | YES  |     | NULL    |                |
++-----------------+--------------+------+-----+---------+----------------+
+18 rows in set (0.00 sec)
+
+int => 2^32 => 42億多 4G => 10 位數 + 1 位正負號 => 11
+
+mysql> SELECT Title, FirstName , LastName FROM Employees;
++--------------------------+-----------+-----------+
+| Title                    | FirstName | LastName  |
++--------------------------+-----------+-----------+
+| Sales Representative     | Nancy     | Davolio   |
+| Vice President, Sales    | Andrew    | Fuller    |
+| Sales Representative     | Janet     | Leverling |
+| Sales Representative     | Margaret  | Peacock   |
+| Sales Manager            | Steven    | Buchanan  |
+| Sales Representative     | Michael   | Suyama    |
+| Sales Representative     | Robert    | King      |
+| Inside Sales Coordinator | Laura     | Callahan  |
+| Sales Representative     | Anne      | Dodsworth |
++--------------------------+-----------+-----------+
+9 rows in set (0.00 sec)
+
+mysql> SELECT Title, FirstName , LastName FROM Employees ORDER BY Title;
++--------------------------+-----------+-----------+
+| Title                    | FirstName | LastName  |
++--------------------------+-----------+-----------+
+| Inside Sales Coordinator | Laura     | Callahan  |
+| Sales Manager            | Steven    | Buchanan  |
+| Sales Representative     | Nancy     | Davolio   |
+| Sales Representative     | Janet     | Leverling |
+| Sales Representative     | Margaret  | Peacock   |
+| Sales Representative     | Michael   | Suyama    |
+| Sales Representative     | Robert    | King      |
+| Sales Representative     | Anne      | Dodsworth |
+| Vice President, Sales    | Andrew    | Fuller    |
++--------------------------+-----------+-----------+
+9 rows in set (0.00 sec)
+
+mysql> SELECT Title, FirstName , LastName FROM Employees ORDER BY Title DESC;
++--------------------------+-----------+-----------+
+| Title                    | FirstName | LastName  |
++--------------------------+-----------+-----------+
+| Vice President, Sales    | Andrew    | Fuller    |
+| Sales Representative     | Nancy     | Davolio   |
+| Sales Representative     | Janet     | Leverling |
+| Sales Representative     | Margaret  | Peacock   |
+| Sales Representative     | Michael   | Suyama    |
+| Sales Representative     | Robert    | King      |
+| Sales Representative     | Anne      | Dodsworth |
+| Sales Manager            | Steven    | Buchanan  |
+| Inside Sales Coordinator | Laura     | Callahan  |
++--------------------------+-----------+-----------+
+9 rows in set (0.00 sec)
