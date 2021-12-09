@@ -147,3 +147,57 @@ mysql> SELECT Title, FirstName , LastName FROM Employees ORDER BY Title DESC, Fi
 | Inside Sales Coordinator | Laura     | Callahan  |
 +--------------------------+-----------+-----------+
 9 rows in set (0.00 sec)
+
+IDE => 整合開發環境
+
+mysql> SELECT Title, FirstName , LastName FROM Employees WHERE Title <> 'Sales Representative';
++--------------------------+-----------+----------+
+| Title                    | FirstName | LastName |
++--------------------------+-----------+----------+
+| Vice President, Sales    | Andrew    | Fuller   |
+| Sales Manager            | Steven    | Buchanan |
+| Inside Sales Coordinator | Laura     | Callahan |
++--------------------------+-----------+----------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT FirstName, LastName, City, Region FROM Employees;
++-----------+-----------+----------+--------+
+| FirstName | LastName  | City     | Region |
++-----------+-----------+----------+--------+
+| Nancy     | Davolio   | Seattle  | WA     |
+| Andrew    | Fuller    | Tacoma   | WA     |
+| Janet     | Leverling | Kirkland | WA     |
+| Margaret  | Peacock   | Redmond  | WA     |
+| Steven    | Buchanan  | London   | NULL   |
+| Michael   | Suyama    | London   | NULL   |
+| Robert    | King      | London   | NULL   |
+| Laura     | Callahan  | Seattle  | WA     |
+| Anne      | Dodsworth | London   | NULL   |
++-----------+-----------+----------+--------+
+9 rows in set (0.00 sec)
+
+mysql> SELECT FirstName, LastName, City, Region FROM Employee WHERE Region IS NULL;
+ERROR 1146 (42S02): Table 'northwind.employee' doesn't exist
+
+mysql> SELECT FirstName, LastName, City, Region FROM Employees WHERE Region IS NULL;
++-----------+-----------+--------+--------+
+| FirstName | LastName  | City   | Region |
++-----------+-----------+--------+--------+
+| Steven    | Buchanan  | London | NULL   |
+| Michael   | Suyama    | London | NULL   |
+| Robert    | King      | London | NULL   |
+| Anne      | Dodsworth | London | NULL   |
++-----------+-----------+--------+--------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT FirstName, LastName, City, Region FROM Employees WHERE Region IS NOT NULL;
++-----------+-----------+----------+--------+
+| FirstName | LastName  | City     | Region |
++-----------+-----------+----------+--------+
+| Nancy     | Davolio   | Seattle  | WA     |
+| Andrew    | Fuller    | Tacoma   | WA     |
+| Janet     | Leverling | Kirkland | WA     |
+| Margaret  | Peacock   | Redmond  | WA     |
+| Laura     | Callahan  | Seattle  | WA     |
++-----------+-----------+----------+--------+
+5 rows in set (0.00 sec)
