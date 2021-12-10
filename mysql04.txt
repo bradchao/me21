@@ -272,3 +272,23 @@ mysql> SELECT cName, cSex, score, CASE    WHEN score >= 90 THEN 'A'   WHEN score
 | 簡奉君    | F    |     7 | E     |
 +-----------+------+-------+-------+
 13 rows in set (0.00 sec)
+
+mysql> SELECT cSex, COUNT(*) FROM students GROUP BY cSex;
++------+----------+
+| cSex | COUNT(*) |
++------+----------+
+| F    |        6 |
+| M    |        7 |
++------+----------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT cSex, COUNT(*), SUM(score), AVG(score), MIN(score), MAX(score) FROM students GROUP BY cSex;
++------+----------+------------+------------+------------+------------+
+| cSex | COUNT(*) | SUM(score) | AVG(score) | MIN(score) | MAX(score) |
++------+----------+------------+------------+------------+------------+
+| F    |        6 |        319 |    53.1667 |          7 |         96 |
+| M    |        7 |        415 |    59.2857 |         13 |         85 |
++------+----------+------------+------------+------------+------------+
+2 rows in set (0.01 sec)
+
+
