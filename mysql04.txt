@@ -151,3 +151,66 @@ mysql> SELECT CONCAT(cName, ' ' , CASE WHEN cSex = 'F' THEN '小姐' WHEN cSex =
 | 資策會 先生      | 台中市                          |
 +------------------+---------------------------------+
 13 rows in set (0.00 sec)
+
+mysql> SELECT CONCAT(cName, ' ' , IF(cSex='F','小姐','先生'), ' 收') Title, cAddr   FROM students;
++----------------------+---------------------------------+
+| Title                | cAddr                           |
++----------------------+---------------------------------+
+| 簡奉君 小姐 收       | 台北市濟洲北路12號              |
+| 黃靖輪 先生 收       | 台北市敦化南路93號5樓           |
+| 潘四敬 先生 收       | 台北市中央路201號7樓            |
+| 賴勝恩 先生 收       | 台北市建國路177號6樓            |
+| 黎楚寧 小姐 收       | 台北市忠孝東路520號6樓          |
+| 蔡中穎 先生 收       | 台北市三民路1巷10號             |
+| 徐佳螢 小姐 收       | 台北市仁愛路100號               |
+| 林雨媗 小姐 收       | 台北市民族路204號               |
+| 林心儀 小姐 收       | 台北市建國北路10號              |
+| 王燕博 先生 收       | 台北市北環路2巷80號             |
+| Brad 先生 收         | 台中市                          |
+| Brad 小姐 收         | 台中市                          |
+| 資策會 先生 收       | 台中市                          |
++----------------------+---------------------------------+
+13 rows in set (0.00 sec)
+
+SELECT 欄位1, 欄位2, ... FROM 資料表 WHERE 條件式 ORDER BY ...
+SELECT 欄位1, 欄位2, ... FROM 資料表 WHERE 條件式 GROUP BY ... ORDER BY ...
+
+mysql> SELECT cSex, COUNT(*) FROM students GROUP BY cSex;
++------+----------+
+| cSex | COUNT(*) |
++------+----------+
+| F    |        6 |
+| M    |        7 |
++------+----------+
+2 rows in set (0.01 sec)
+
+mysql> SELECT cSex, COUNT(*) NUMS FROM students GROUP BY cSex;
++------+------+
+| cSex | NUMS |
++------+------+
+| F    |    6 |
+| M    |    7 |
++------+------+
+2 rows in set (0.00 sec)
+
+mysql> ALTER TABLE `students` ADD `score` INT UNSIGNED NOT NULL DEFAULT '0' AFTER `cAddr`;
+Query OK, 0 rows affected (0.06 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESC students;
++-----------+------------------------------+------+-----+---------+----------------+
+| Field     | Type                         | Null | Key | Default | Extra          |
++-----------+------------------------------+------+-----+---------+----------------+
+| cID       | tinyint(2) unsigned zerofill | NO   | PRI | NULL    | auto_increment |
+| cName     | varchar(20)                  | NO   |     | NULL    |                |
+| cSex      | enum('F','M')                | NO   |     | F       |                |
+| cBirthday | date                         | NO   |     | NULL    |                |
+| cEmail    | varchar(100)                 | YES  |     | NULL    |                |
+| cPhone    | varchar(50)                  | YES  |     | NULL    |                |
+| cAddr     | varchar(255)                 | YES  |     | NULL    |                |
+| score     | int(10) unsigned             | NO   |     | 0       |                |
++-----------+------------------------------+------+-----+---------+----------------+
+8 rows in set (0.00 sec)
+
+
+
