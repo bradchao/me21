@@ -212,5 +212,16 @@ mysql> DESC students;
 +-----------+------------------------------+------+-----+---------+----------------+
 8 rows in set (0.00 sec)
 
+mysql> SELECT FLOOR(RAND() * 101);
++---------------------+
+| FLOOR(RAND() * 101) |
++---------------------+
+|                  81 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> UPDATE students SET score = FLOOR(RAND() * 101);
+Query OK, 13 rows affected (0.00 sec)
+Rows matched: 13  Changed: 13  Warnings: 0
 
 
