@@ -91,3 +91,63 @@ mysql> SELECT EmployeeID, CONCAT(FirstName , ' ', LastName ) FName, Title FROM E
 +------------+------------------+--------------------------+
 9 rows in set (0.00 sec)
 
+mysql> SELECT OrderID, Freight, Freight * 1.1 FreightTotal FROM Orders WHERE FreightTotal >= 500;
+ERROR 1054 (42S22): Unknown column 'FreightTotal' in 'where clause'
+
+mysql> SELECT OrderID, Freight, Freight * 1.1 FreightTotal FROM Orders WHERE Freight * 1.1 >= 500;
++---------+-----------+--------------+
+| OrderID | Freight   | FreightTotal |
++---------+-----------+--------------+
+|   10372 |  890.7800 |    979.85800 |
+|   10430 |  458.7800 |    504.65800 |
+|   10479 |  708.9500 |    779.84500 |
+|   10514 |  789.9500 |    868.94500 |
+|   10540 | 1007.6400 |   1108.40400 |
+|   10612 |  544.0800 |    598.48800 |
+|   10633 |  477.9000 |    525.69000 |
+|   10634 |  487.3800 |    536.11800 |
+|   10691 |  810.0500 |    891.05500 |
+|   10816 |  719.7800 |    791.75800 |
+|   10847 |  487.5700 |    536.32700 |
+|   10897 |  603.5400 |    663.89400 |
+|   10912 |  580.9100 |    639.00100 |
+|   10983 |  657.5400 |    723.29400 |
+|   11017 |  754.2600 |    829.68600 |
+|   11030 |  830.7500 |    913.82500 |
+|   11032 |  606.1900 |    666.80900 |
++---------+-----------+--------------+
+17 rows in set (0.00 sec)
+
+mysql> SELECT ProductID, UnitPrice, Quantity, UnitPrice * Quantity Total FROM OrderDetails;
+
+mysql> SElECT ProductID, Quantity FROM OrderDetails WHERE ProductID = 18;
+
+-------------------------------------------------------------------------
+mysql> use class2;
+
+mysql> SELECT 
+    -> CASE
+    ->   WHEN cSex = 'F' THEN '小姐'
+    ->   WHEN cSex = 'M' THEN '先生'
+    -> END
+    -> FROM students;
+
+mysql> SELECT CONCAT(cName, ' ' , CASE WHEN cSex = 'F' THEN '小姐' WHEN cSex = 'M' THEN '先生' END) Title, cAddr   FROM students;
++------------------+---------------------------------+
+| Title            | cAddr                           |
++------------------+---------------------------------+
+| 簡奉君 小姐      | 台北市濟洲北路12號              |
+| 黃靖輪 先生      | 台北市敦化南路93號5樓           |
+| 潘四敬 先生      | 台北市中央路201號7樓            |
+| 賴勝恩 先生      | 台北市建國路177號6樓            |
+| 黎楚寧 小姐      | 台北市忠孝東路520號6樓          |
+| 蔡中穎 先生      | 台北市三民路1巷10號             |
+| 徐佳螢 小姐      | 台北市仁愛路100號               |
+| 林雨媗 小姐      | 台北市民族路204號               |
+| 林心儀 小姐      | 台北市建國北路10號              |
+| 王燕博 先生      | 台北市北環路2巷80號             |
+| Brad 先生        | 台中市                          |
+| Brad 小姐        | 台中市                          |
+| 資策會 先生      | 台中市                          |
++------------------+---------------------------------+
+13 rows in set (0.00 sec)
