@@ -224,4 +224,51 @@ mysql> UPDATE students SET score = FLOOR(RAND() * 101);
 Query OK, 13 rows affected (0.00 sec)
 Rows matched: 13  Changed: 13  Warnings: 0
 
+mysql> SELECT cName, score,
+    -> CASE 
+    ->   WHEN score >= 90 THEN 'A'
+    ->   WHEN score >= 80 THEN 'B'
+    ->   WHEN score >= 70 THEN 'C'
+    ->   WHEN score >= 60 THEN 'D'
+    ->   ELSE 'E'
+    -> END level
+    -> FROM students;
++-----------+-------+-------+
+| cName     | score | level |
++-----------+-------+-------+
+| 簡奉君    |    53 | E     |
+| 黃靖輪    |    78 | C     |
+| 潘四敬    |    30 | E     |
+| 賴勝恩    |    17 | E     |
+| 黎楚寧    |    95 | A     |
+| 蔡中穎    |    24 | E     |
+| 徐佳螢    |    35 | E     |
+| 林雨媗    |     5 | E     |
+| 林心儀    |    18 | E     |
+| 王燕博    |    79 | C     |
+| Brad      |    37 | E     |
+| Brad      |    50 | E     |
+| 資策會    |    36 | E     |
++-----------+-------+-------+
+13 rows in set (0.00 sec)
 
+mysql> SELECT cName, cSex, score, CASE    WHEN score >= 90 THEN 'A'   WHEN score >= 80 THEN 'B'   WHEN score >= 70 THEN 'C'   WHEN score >= 60 THEN 'D
+'   ELSE 'E' END level FROM students ORDER BY score DESC;
++-----------+------+-------+-------+
+| cName     | cSex | score | level |
++-----------+------+-------+-------+
+| 黎楚寧    | F    |    96 | A     |
+| 林心儀    | F    |    93 | A     |
+| 徐佳螢    | F    |    87 | B     |
+| Brad      | M    |    85 | B     |
+| 蔡中穎    | M    |    75 | C     |
+| 資策會    | M    |    75 | C     |
+| 黃靖輪    | M    |    67 | D     |
+| 賴勝恩    | M    |    67 | D     |
+| 王燕博    | M    |    33 | E     |
+| Brad      | F    |    26 | E     |
+| 潘四敬    | M    |    13 | E     |
+| 林雨媗    | F    |    10 | E     |
+| 簡奉君    | F    |     7 | E     |
++-----------+------+-------+-------+
+13 rows in set (0.00 sec)
