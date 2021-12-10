@@ -385,3 +385,25 @@ mysql> SELECT COUNT(DISTINCT City) FROM Employees;
 |                    5 |
 +----------------------+
 1 row in set (0.01 sec)
+
+訂單明細中各商品的總銷售量: ProductID, sum
+mysql> SELECT ProductID, SUM(Quantity) sum FROM OrderDetails GROUP BY ProductID HAVING sum >= 1000;
++-----------+------+
+| ProductID | sum  |
++-----------+------+
+|         2 | 1057 |
+|        16 | 1158 |
+|        21 | 1016 |
+|        24 | 1125 |
+|        31 | 1397 |
+|        40 | 1103 |
+|        56 | 1263 |
+|        59 | 1496 |
+|        60 | 1577 |
+|        62 | 1083 |
+|        71 | 1057 |
+|        75 | 1155 |
++-----------+------+
+12 rows in set (0.00 sec)
+
+統計一下各個商品的平均單價
