@@ -308,3 +308,80 @@ mysql> SELECT cSex, COUNT(*), SUM(score), AVG(score) FROM students GROUP BY cSex
 +------+----------+------------+------------+
 1 row in set (0.00 sec)
 
+SELECT 欄位1, 欄位2, ... FROM 資料表 WHERE 條件式 GROUP BY ... HAVING 條件式 ORDER BY ...
+
+mysql> SELECT City, COUNT(*) Nums FROM Employees GROUP BY City;
++----------+------+
+| City     | Nums |
++----------+------+
+| Kirkland |    1 |
+| London   |    4 |
+| Redmond  |    1 |
+| Seattle  |    2 |
+| Tacoma   |    1 |
++----------+------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT City, COUNT(*) Nums FROM Employees GROUP BY City HAVING COUNT(*) >= 2;
++---------+------+
+| City    | Nums |
++---------+------+
+| London  |    4 |
+| Seattle |    2 |
++---------+------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT City, COUNT(*) Nums FROM Employees WHERE Title = 'Sales Representative' GROUP BY City;
++----------+------+
+| City     | Nums |
++----------+------+
+| Kirkland |    1 |
+| London   |    3 |
+| Redmond  |    1 |
+| Seattle  |    1 |
++----------+------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT City, COUNT(*) Nums FROM Employees WHERE Title = 'Sales Representative' GROUP BY City HAVING Nums > 1;
++--------+------+
+| City   | Nums |
++--------+------+
+| London |    3 |
++--------+------+
+1 row in set (0.00 sec)
+
+mysql> SELECT City FROM Employees;
++----------+
+| City     |
++----------+
+| Seattle  |
+| Tacoma   |
+| Kirkland |
+| Redmond  |
+| London   |
+| London   |
+| London   |
+| Seattle  |
+| London   |
++----------+
+9 rows in set (0.00 sec)
+
+mysql> SELECT DISTINCT City FROM Employees;
++----------+
+| City     |
++----------+
+| Seattle  |
+| Tacoma   |
+| Kirkland |
+| Redmond  |
+| London   |
++----------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT COUNT(DISTINCT City) FROM Employees;
++----------------------+
+| COUNT(DISTINCT City) |
++----------------------+
+|                    5 |
++----------------------+
+1 row in set (0.01 sec)
