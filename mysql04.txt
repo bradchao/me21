@@ -1,0 +1,93 @@
+mysql> use northwind ;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> SELECT database();
++------------+
+| database() |
++------------+
+| northwind  |
++------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT concat(FirstName , LastName ) FROM Employees;
++-------------------------------+
+| concat(FirstName , LastName ) |
++-------------------------------+
+| NancyDavolio                  |
+| AndrewFuller                  |
+| JanetLeverling                |
+| MargaretPeacock               |
+| StevenBuchanan                |
+| MichaelSuyama                 |
+| RobertKing                    |
+| LauraCallahan                 |
+| AnneDodsworth                 |
++-------------------------------+
+9 rows in set (0.00 sec)
+
+mysql> SELECT concat(FirstName , ' ', LastName ) FROM Employees;
++------------------------------------+
+| concat(FirstName , ' ', LastName ) |
++------------------------------------+
+| Nancy Davolio                      |
+| Andrew Fuller                      |
+| Janet Leverling                    |
+| Margaret Peacock                   |
+| Steven Buchanan                    |
+| Michael Suyama                     |
+| Robert King                        |
+| Laura Callahan                     |
+| Anne Dodsworth                     |
++------------------------------------+
+9 rows in set (0.00 sec)
+
+mysql> SELECT concat(FirstName , ' ', LastName ) AS FName FROM Employees;
++------------------+
+| FName            |
++------------------+
+| Nancy Davolio    |
+| Andrew Fuller    |
+| Janet Leverling  |
+| Margaret Peacock |
+| Steven Buchanan  |
+| Michael Suyama   |
+| Robert King      |
+| Laura Callahan   |
+| Anne Dodsworth   |
++------------------+
+9 rows in set (0.00 sec)
+
+mysql> SELECT concat(FirstName , ' ', LastName ) FName FROM Employees;
++------------------+
+| FName            |
++------------------+
+| Nancy Davolio    |
+| Andrew Fuller    |
+| Janet Leverling  |
+| Margaret Peacock |
+| Steven Buchanan  |
+| Michael Suyama   |
+| Robert King      |
+| Laura Callahan   |
+| Anne Dodsworth   |
++------------------+
+9 rows in set (0.00 sec)
+
+mysql> SELECT EmployeeID, CONCAT(FirstName , ' ', LastName ) FName, Title FROM Employees;
++------------+------------------+--------------------------+
+| EmployeeID | FName            | Title                    |
++------------+------------------+--------------------------+
+|          1 | Nancy Davolio    | Sales Representative     |
+|          2 | Andrew Fuller    | Vice President, Sales    |
+|          3 | Janet Leverling  | Sales Representative     |
+|          4 | Margaret Peacock | Sales Representative     |
+|          5 | Steven Buchanan  | Sales Manager            |
+|          6 | Michael Suyama   | Sales Representative     |
+|          7 | Robert King      | Sales Representative     |
+|          8 | Laura Callahan   | Inside Sales Coordinator |
+|          9 | Anne Dodsworth   | Sales Representative     |
++------------+------------------+--------------------------+
+9 rows in set (0.00 sec)
+
