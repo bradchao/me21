@@ -202,6 +202,16 @@ FROM Orders o
 GROUP BY o.EmployeeID
 ORDER BY total DESC;
 
+mysql> SELECT e.EmployeeID, e.LastName, SUM(od.UnitPrice * od.Quantity) tp
+    -> FROM Employees e
+    ->     JOIN Orders o ON (o.EmployeeID = e.EmployeeID)
+    ->     JOIN OrderDetails od ON (od.OrderID = o.OrderID)
+    -> WHERE e.EmployeeID = 4;
+
+mysql> SELECT p.ProductName, s.CompanyName, s.ContactName, s.Phone
+    -> FROM Products p, Suppliers s
+    -> WHERE p.SupplierID = s.SupplierID;
+
 
 
 
