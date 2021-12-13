@@ -67,6 +67,11 @@ mysql> SELECT CustomerID, CompanyName FROM Customers WHERE CustomerID = (SELECT 
 +------------+---------------------------+
 1 row in set (0.01 sec)
 
+1997 年有下訂單的客戶編號 => 客戶名稱
+mysql> SELECT CustomerID, OrderDate FROM Orders WHERE OrderDate BETWEEN '1997-01-01' AND '1997-12-31';
+
+mysql> SELECT CompanyName FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Orders WHERE OrderDate BETWEEN '1997-01-01' AND '1997-12-31');
+
 
 
 
