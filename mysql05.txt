@@ -41,4 +41,5 @@ mysql> SELECT LastName, BirthDate, HireDate, YEAR(HireDate)-YEAR(BirthDate) age,
     -> DATEDIFF(HireDate, BirthDate) / 365
     -> FROM Employees;
 
+mysql> SELECT LastName, BirthDate FROM Employees WHERE MONTH(BirthDate ) = MONTH(NOW());
 
