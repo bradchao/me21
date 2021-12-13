@@ -43,3 +43,31 @@ mysql> SELECT LastName, BirthDate, HireDate, YEAR(HireDate)-YEAR(BirthDate) age,
 
 mysql> SELECT LastName, BirthDate FROM Employees WHERE MONTH(BirthDate ) = MONTH(NOW());
 
+
+mysql> SELECT OrderID, CustomerID FROM Orders WHERE OrderID = 10248;
++---------+------------+
+| OrderID | CustomerID |
++---------+------------+
+|   10248 | VINET      |
++---------+------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT CustomerID, CompanyName FROM Customers WHERE CustomerID = 'VINET';
++------------+---------------------------+
+| CustomerID | CompanyName               |
++------------+---------------------------+
+| VINET      | Vins et alcools Chevalier |
++------------+---------------------------+
+
+mysql> SELECT CustomerID, CompanyName FROM Customers WHERE CustomerID = (SELECT CustomerID FROM Orders WHERE OrderID = 10248);
++------------+---------------------------+
+| CustomerID | CompanyName               |
++------------+---------------------------+
+| VINET      | Vins et alcools Chevalier |
++------------+---------------------------+
+1 row in set (0.01 sec)
+
+
+
+
+
