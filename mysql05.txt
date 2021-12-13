@@ -160,3 +160,36 @@ FROM OrderDetails od
     JOIN Orders o ON (o.OrderID = od.OrderID)
     JOIN Customers c ON (c.CustomerID = o.CustomerID)
 WHERE UnitPrice * Quantity * (1 - Discount) >= 10000
+
+------------------------------------------
+SELECT CompanyName, ProductID, UnitPrice * Quantity * (1 - Discount) tp
+FROM OrderDetails od, Orders o, Customers c
+WHERE o.OrderID = od.OrderID 
+    AND c.CustomerID = o.CustomerID 
+    AND UnitPrice * Quantity * (1 - Discount) >= 10000
+
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+CASE
+    WHEN ... THEN
+    WHEN ... THEN
+END
+==> 一個查詢資料項
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+SELECT City, Country FROM Customers;
+
+mysql> SELECT EmployeeID, LastName, City, Country FROM Employees
+    -> WHERE ROW(City,Country) IN
+    -> (SELECT City, Country FROM Customers);
+
+mysql> SELECT MAX(UnitPrice) FROM OrderDetails WHERE ProductID = 47;
+mysql> SELECT UnitPrice FROM OrderDetails WHERE ProductID = 47;
+
+mysql> SELECT p.ProductID, p.ProductName, MAX(od.UnitPrice)
+    -> FROM Products p
+    ->     JOIN OrderDetails od ON (p.ProductID = od.ProductID)
+    -> WHERE p.ProductID = 47;
+
+mysql> select productid, max(unitprice) from orderdetails group by productid;
+
+
