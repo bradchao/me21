@@ -155,3 +155,8 @@ GROUP BY c.CompanyName
 HAVING COUNT(o.OrderID) >= 10
 ORDER BY nums DESC;
 
+SELECT CompanyName, ProductID, UnitPrice * Quantity * (1 - Discount) tp
+FROM OrderDetails od
+    JOIN Orders o ON (o.OrderID = od.OrderID)
+    JOIN Customers c ON (c.CustomerID = o.CustomerID)
+WHERE UnitPrice * Quantity * (1 - Discount) >= 10000
