@@ -110,6 +110,10 @@ mysql> SELECT ProductID, ProductName FROM Products WHERE CategoryID IN (SELECT C
 +-----------+---------------------------------+
 12 rows in set (0.00 sec)
 
-
-
+Join 查詢, 合併表查詢
+SELECT table1.col1, table1.col2,..., table2.col1, ....
+FROM table1 JOIN table2 ON (table1.col = table2.col)
+WHERE 條件式
+...
+...
 
