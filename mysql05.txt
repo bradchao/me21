@@ -12,4 +12,11 @@ mysql> SELECT ProductID,SUM(Quantity) sump, SUM(UnitPrice * Quantity) sump, SUM(
     -> FROM OrderDetails
     -> GROUP BY ProductID;
 
+統計各個客戶的訂單數量
+mysql> SELECT CustomerID, COUNT(*) nums FROM Orders GROUP BY CustomerID;
+
+mysql> SELECT CustomerID, COUNT(*) nums FROM Orders GROUP BY CustomerID ORDER BY nums DESC;
+
+mysql> SELECT CustomerID, COUNT(*) nums FROM Orders GROUP BY CustomerID HAVING nums < 10 ORDER BY nums DESC;
+
 
