@@ -72,6 +72,43 @@ mysql> SELECT CustomerID, OrderDate FROM Orders WHERE OrderDate BETWEEN '1997-01
 
 mysql> SELECT CompanyName FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Orders WHERE OrderDate BETWEEN '1997-01-01' AND '1997-12-31');
 
+mysql> SELECT ProductName, SupplierID FROM Products WHERE SupplierID IN
+    -> (SELECT SupplierID FROM Suppliers WHERE CompanyName IN ('Tokyo Traders', "Mayumi's", 'Pavlova, Ltd.' ));
++------------------+------------+
+| ProductName      | SupplierID |
++------------------+------------+
+| Konbu            |          6 |
+| Tofu             |          6 |
+| Genen Shouyu     |          6 |
+| Pavlova          |          7 |
+| Alice Mutton     |          7 |
+| Carnarvon Tigers |          7 |
+| Vegie-spread     |          7 |
+| Outback Lager    |          7 |
+| Mishi Kobe Niku  |          4 |
+| Ikura            |          4 |
+| Longlife Tofu    |          4 |
++------------------+------------+
+11 rows in set (0.01 sec)
+
+mysql> SELECT ProductID, ProductName FROM Products WHERE CategoryID IN (SELECT CategoryID FROM Categories WHERE CategoryName = 'Seafood');
++-----------+---------------------------------+
+| ProductID | ProductName                     |
++-----------+---------------------------------+
+|        10 | Ikura                           |
+|        13 | Konbu                           |
+|        18 | Carnarvon Tigers                |
+|        30 | Nord-Ost Matjeshering           |
+|        36 | Inlagd Sill                     |
+|        37 | Gravad lax                      |
+|        40 | Boston Crab Meat                |
+|        41 | Jack's New England Clam Chowder |
+|        45 | Rogede sild                     |
+|        46 | Spegesild                       |
+|        58 | Escargots de Bourgogne          |
+|        73 | Rd Kaviar                       |
++-----------+---------------------------------+
+12 rows in set (0.00 sec)
 
 
 
