@@ -144,3 +144,14 @@ mysql> SELECT o.OrderID, c.CompanyName, e.LastName
     -> JOIN Customers c ON (o.CustomerID = c.CustomerID)
     -> WHERE o.ShippedDate > o.RequiredDate 
     -> ORDER BY c.CompanyName;
+
+哪些公司的訂單數量在10筆以上(在1997年以後), 顯示公司名稱
+
+SELECT c.CompanyName, COUNT(o.OrderID) nums
+FROM Orders o JOIN Customers c ON
+    (o.CustomerID = c.CustomerID)
+WHERE o.OrderDate >= '1997-01-01'
+GROUP BY c.CompanyName
+HAVING COUNT(o.OrderID) >= 10
+ORDER BY nums DESC;
+
