@@ -1,0 +1,11 @@
+統計一下各個商品的平均單價
+
+mysql> SELECT ProductID, AVG(UnitPrice) avg FROM OrderDetails GROUP BY ProductID ORDER BY avg;
+
+mysql> SELECT ProductID, AVG(UnitPrice) avg FROM OrderDetails GROUP BY ProductID ORDER BY avg DESC;
+
+mysql> SELECT ProductID, AVG(UnitPrice) avg FROM OrderDetails GROUP BY ProductID HAVING avg > 70 ORDER BY avg DESC;
+
+mysql> SELECT ProductID, AVG(UnitPrice) avg FROM OrderDetails WHERE ProductID > 10 GROUP BY ProductID HAVING avg > 70 ORDER BY avg DESC;
+
+
