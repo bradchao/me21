@@ -118,7 +118,29 @@ WHERE 條件式
 ...
 
 
-mysql> SELECT Employees.EmployeeID, Employees.FirstName, Employees.LastName, 
-        Orders.OrderID, Orders.OrderDate  
+mysql> SELECT Employees.EmployeeID, Employees.FirstName, Employees.LastName, Orders.OrderID, Orders.OrderDate  
     -> FROM Employees JOIN Orders ON
     -> (Employees.EmployeeID = Orders.EmployeeID);
+
+mysql> SELECT Employees.EmployeeID, Employees.FirstName, Employees.LastName, Orders.OrderID, Orders.OrderDate  
+    -> FROM Orders JOIN Employees ON
+    -> (Orders.EmployeeID = Employees.EmployeeID );
+
+mysql> SELECT e.EmployeeID, e.FirstName, e.LastName, o.OrderID, o.OrderDate 
+    -> FROM Employees e JOIN Orders o ON 
+    -> (e.EmployeeID = o.EmployeeID )
+    -> ORDER BY o.OrderDate;
+
+多重JOIN
+SELECT tb1.col1, tb2.col2, tb3.col3
+FROM tb1
+        JOIN tb2 ON (tb1.colx = tb2.colx)
+        JOIN tb3 ON (tb2.coly = tb3.coly)
+......
+
+mysql> SELECT o.OrderID, c.CompanyName, e.LastName 
+    -> FROM Orders o
+    -> JOIN Employees e ON (o.EmployeeID = e.EmployeeID)
+    -> JOIN Customers c ON (o.CustomerID = c.CustomerID)
+    -> WHERE o.ShippedDate > o.RequiredDate 
+    -> ORDER BY c.CompanyName;
