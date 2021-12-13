@@ -25,4 +25,20 @@ SELECT ProductName, CONCAT("$", UnitPrice), CONCAT("$", CAST(UnitPrice AS CHAR(1
 
 mysql> SELECT ProductID, ProductName FROM Products ORDER BY ProductID LIMIT 0, 10;
 
+mysql> SELECT LastName, BirthDate, HireDate FROM Employees;
+
+mysql> SELECT LastName, BirthDate, HireDate, YEAR(BirthDate) byear, YEAR(HireDate) hyear, YEAR(HireDate)-YEAR(BirthDate) age FROM Employee
+
+mysql> SELECT DATEDIFF('2021-11-13','2021-10-13');
++-------------------------------------+
+| DATEDIFF('2021-11-13','2021-10-13') |
++-------------------------------------+
+|                                  31 |
++-------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT LastName, BirthDate, HireDate, YEAR(HireDate)-YEAR(BirthDate) age, 
+    -> DATEDIFF(HireDate, BirthDate) / 365
+    -> FROM Employees;
+
 
