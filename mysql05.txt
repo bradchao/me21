@@ -192,4 +192,16 @@ mysql> SELECT p.ProductID, p.ProductName, MAX(od.UnitPrice)
 
 mysql> select productid, max(unitprice) from orderdetails group by productid;
 
+銷售業績排行榜
+員工編號, LastName, total
+
+SELECT e.EmployeeID, e.LastName, SUM(UnitPrice * Quantity) total
+FROM Orders o 
+    JOIN OrderDetails od ON (o.OrderID = od.OrderID)
+    JOIN Employees e ON (o.EmployeeID = e.EmployeeID)
+GROUP BY o.EmployeeID
+ORDER BY total DESC;
+
+
+
 
