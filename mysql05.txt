@@ -19,4 +19,10 @@ mysql> SELECT CustomerID, COUNT(*) nums FROM Orders GROUP BY CustomerID ORDER BY
 
 mysql> SELECT CustomerID, COUNT(*) nums FROM Orders GROUP BY CustomerID HAVING nums < 10 ORDER BY nums DESC;
 
+mysql> SELECT Freight, ROUND(Freight, 1) FROM Orders;
+
+SELECT ProductName, CONCAT("$", UnitPrice), CONCAT("$", CAST(UnitPrice AS CHAR(10))), UnitsInStock  FROM Products LIMIT 10;
+
+mysql> SELECT ProductID, ProductName FROM Products ORDER BY ProductID LIMIT 0, 10;
+
 
