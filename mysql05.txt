@@ -117,3 +117,8 @@ WHERE 條件式
 ...
 ...
 
+
+mysql> SELECT Employees.EmployeeID, Employees.FirstName, Employees.LastName, 
+        Orders.OrderID, Orders.OrderDate  
+    -> FROM Employees JOIN Orders ON
+    -> (Employees.EmployeeID = Orders.EmployeeID);
