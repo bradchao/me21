@@ -1,9 +1,13 @@
 <table border="1" width="100%">
     <?php
-        for ($k = 0; $k < 5; $k++){
+        $start = 1;
+        $cols = 9;
+        $rows = 1;
+
+        for ($k = 0; $k < $rows; $k++){
             echo '<tr>';
-            for ($j = 2; $j <= 5; $j++){
-                $newj = $j  + $k * 4;
+            for ($j = $start; $j < $start+$cols; $j++){
+                $newj = $j  + $k * $cols;
                 echo '<td>'; 
                 for ($i = 1; $i <= 9; $i++){
                     $r = $newj * $i;
