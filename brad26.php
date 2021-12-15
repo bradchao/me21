@@ -1,5 +1,7 @@
 <?php
-    $p = array();
+    $p = array(1 => 0, 0, 0, 0, 0, 0);
+    var_dump($p);
+    /*
     for($i = 0; $i < 100 ; $i++){
         $point = rand(1,6);
         switch($point){
@@ -22,5 +24,6 @@
     if ($px > 0){
         echo "X點出現{$px}次<br />";
     }
+    */
 
 ?>
