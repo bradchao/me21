@@ -19,6 +19,15 @@
             // 平
             $isLeap = false;
         }
+
+        // Code Review => I/O => File => Network
+        // 大部分(3/4 +)的案例,至少做兩次的判斷
+        if ( ($year % 4 == 0 && $year % 100 !== 0) || ($year % 400 == 0) ) {
+            echo '閏年';
+        } else {
+            echo '平年';
+        }
+
     }
 ?>
 <form>
