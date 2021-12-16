@@ -1,10 +1,9 @@
 <?php
     $poker = range(0,51);
     shuffle($poker);
-
-    foreach($poker as $v){
-        echo "{$v}<br>";
-    }
+    // foreach($poker as $v){
+    //     echo "{$v}<br>";
+    // }
 ?>
 <hr />
 <?php
@@ -17,32 +16,14 @@
 
 ?>
 <table border="1" width="100%">
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
+    <?php
+        foreach($players as $player){
+            echo '<tr>';
+            foreach($player as $card){
+                echo "<td>{$card}</td>";
+            }
+            echo '</tr>';    
+        }
+
+    ?>
 </table>
