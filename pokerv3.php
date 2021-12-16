@@ -5,5 +5,44 @@
     foreach($poker as $v){
         echo "{$v}<br>";
     }
-    
 ?>
+<hr />
+<?php
+    $players = [[],[],[],[]];
+    // var_dump($players);
+
+    foreach ($poker as $i => $card){
+        $players[$i % 4][ (int)($i / 4) ] = $card;
+    }
+
+?>
+<table border="1" width="100%">
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
