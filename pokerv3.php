@@ -24,7 +24,7 @@
             echo '<tr>';
             foreach($player as $card){
                 echo "<td>";
-                echo $suits[(int)($card / 13)];
+                echo $suits[(int)($card / 13)]; // [0], [1], [2]. [3]
                 echo $value[$card % 13];
                 echo "</td>";
             }
