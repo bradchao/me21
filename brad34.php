@@ -6,5 +6,15 @@
     }else{
         echo 'XX2';
     }
-
+    
+?>
+<hr />
+<?php
+    $a = 'ABCDEFG';
+    $b = 'D';
+    if (strpos($a, $b) !== false){
+        echo 'OK';
+    }else{
+        echo 'XX';
+    }
 ?>

@@ -5,16 +5,15 @@
         // 0-9 x 9
         // 第二碼 1 / 2
         $isRight = false;
+        if (preg_match('/^[A-Z][12][0-9]{8}$/', $id)){
+            $letters = 'ABCDEFGHJKLMNPQRSTUVXYWZIO';
+            $c1 = substr($id, 0, 1);
+            $n12 = strpos($letters, $c1) + 10;
+            $n1 = (int)($n12 / 10);
+            $n2 = $n12 % 10;
 
-        if (strlen($id) == 10){
-            $letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-            $c1 = substr($id,0,1);
-            if (strpos($letters, $c1) !== false ){
-                
-                $isRight = true;
-            }
+            //echo "{$n1} : {$n2}";
         }
-
         return $isRight;
     }
 
