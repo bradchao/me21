@@ -22,20 +22,23 @@
             $n11 = substr($id, 9, 1);
             $sum = $n1*1 + $n2*9 + $n3*8 + $n4*7 + $n5*6 + $n6*5 + $n7*4
                 + $n8*3 + $n9*2 + $n10*1 + $n11*1;
-            return $sum % 10 == 0;
+            $isRight = $sum % 10 == 0;
+            return $isRight;
         }
         return $isRight;
     }
 
     function createTWIdByRandom(){
         $gender = rand(0,1) == 0;
-        return createTWIdByGender($gender);
+        $tempID = createTWIdByGender($gender);
+        return $tempID;
     }
 
     function createTWIdByGender($gender = false){
         $letters = 'ABCDEFGHJKLMNPQRSTUVXYWZIO';
         $area = substr($letters, rand(0,25), 1);
-        return createTWIdByBoth($gender, $area);
+        $tempID = createTWIdByBoth($gender, $area);
+        return $tempID;
     }
 
     function createTWIdByArea($area = 'B'){
