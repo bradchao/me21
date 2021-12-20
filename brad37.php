@@ -20,7 +20,7 @@
     <input type="checkbox" name="habit[]" value="5" />打羽球
     <input type="checkbox" name="habit[]" value="6" />打小孩<br />
 
-
+    Icon: <input type="file" name='upload' /><br />
 
 
     <input type="submit" value="Register" />
