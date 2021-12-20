@@ -1,3 +1,6 @@
+<?php
+    date_default_timezone_set('Asia/Taipei');
+?>
 <table border="1" width="100%" >
     <tr>
         <th>Filename</th>
@@ -12,7 +15,7 @@
         echo '<tr>';
         echo "<td>" . ($dir . $fname) . "</td>" ;
         echo '<td>' . filesize($dir . $fname) . 'bytes </td>' ;
-        echo '<td>' .  . '</td>';
+        echo '<td>' . date('Y-m-d H:i:s',filemtime($dir . $fname)) . '</td>';
         echo '</tr>';
     }
 
@@ -20,3 +23,5 @@
     closedir($fp);
 ?>
 </table>
+
+timestamp 時間戳記
