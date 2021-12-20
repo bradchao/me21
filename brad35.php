@@ -1,10 +1,8 @@
 <?php
     include 'bradutils.php';
 
-    if (checkTWId('Y120239847')){
-        echo 'OK';
-    }else{
-        echo 'XX';
-    }
-
+    echo createTWIdByRandom() . '<br />';
+    echo createTWIdByGender(false) . '<br />';
+    echo createTWIdByArea('W') . '<br />';
+    echo createTWIdByBoth(true, 'B') . '<br />';
 ?>
