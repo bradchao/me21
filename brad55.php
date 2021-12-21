@@ -15,7 +15,8 @@
     if ($stmt->execute()){
         echo 'OK';
     }else{
-        echo 'XX';
+        echo $mysqli->errno . '<br />';
+        echo $mysqli->error;
     }
 
 
