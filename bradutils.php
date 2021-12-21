@@ -65,6 +65,10 @@
     }
 
     class Bike {
+        // Bike has-a => member 成員
+        // $speed, upSpee(), downSpeed(), getSpeed()
+        // 誰的 -> member
+        // 在class中提及由該類別所產生的那個物件 $this
         //private $speed = 0;
         protected $speed = 0;
         function upSpeed(){
@@ -78,6 +82,7 @@
         }
     }
 
+    // Scooter is-a Bike
     class Scooter extends Bike {
         private $gear = 0;
         function changeGear($gear = 0){
@@ -108,6 +113,7 @@
         function getScooter(){return $this->scooter;}
 
     }
+    // class 車子 => class 法拉利
 
 
 ?>
