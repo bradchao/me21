@@ -65,7 +65,8 @@
     }
 
     class Bike {
-        private $speed = 0;
+        //private $speed = 0;
+        protected $speed = 0;
         function upSpeed(){
             $this->speed = $this->speed < 1 ? 1 : $this->speed * 1.2;
         }
@@ -75,6 +76,37 @@
         function getSpeed(){
             return $this->speed;
         }
+    }
+
+    class Scooter extends Bike {
+        private $gear = 0;
+        function changeGear($gear = 0){
+            if ($gear >= 0 && $gear <= 5){
+                $this->gear = $gear;
+            }
+        } 
+        // Override
+        function upSpeed(){
+            $this->speed = $this->speed < 1 ? 1*$this->gear : $this->speed * 1.2 * $this->gear;
+        }
+
+        function dump(){
+            var_dump($this);
+        }
+    }
+
+    class Person {
+        private $name, $bike, $scooter;
+        function __construct($name){
+            $this->name = $name;
+            $bike = new Bike;
+            $scooter = new Scooter;
+        }
+
+        function getName(){return $this->name;}
+        function getBike(){return $this->bike;}
+        function getScooter(){return $this->scooter;}
+
     }
 
 
