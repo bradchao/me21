@@ -1,0 +1,20 @@
+<?php
+
+    // 1. 建立畫布(空白/exist)
+    $img = ImageCreate(400, 24);
+    //var_dump($img);
+
+    // 2. 開始作畫
+    $red = imagecolorallocate($img, 255, 0, 0);
+    $yellow = imagecolorallocate($img, 255, 255, 0);
+    imagefill($img, 0, 0, $red);
+    imagefilledrectangle($img,0,0,200,24, $yellow);
+
+    // 3. 輸出(網頁/檔案)
+    header('Content-type: image/jpeg');
+    imagejpeg($img);
+
+    // 4. 釋放記憶體
+    ImageDestroy($img);
+
+?>
