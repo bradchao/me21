@@ -99,8 +99,8 @@
         private $name, $bike, $scooter;
         function __construct($name){
             $this->name = $name;
-            $bike = new Bike;
-            $scooter = new Scooter;
+            $this->bike = new Bike;
+            $this->scooter = new Scooter;
         }
 
         function getName(){return $this->name;}
