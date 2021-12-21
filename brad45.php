@@ -1,4 +1,8 @@
 <?php
+    $rate = 0;
+    if (isset($_GET['rate'])){
+        $rate = $_GET['rate'];
+    }
 
     // 1. 建立畫布(空白/exist)
     $img = ImageCreate(400, 24);
@@ -8,7 +12,7 @@
     $red = imagecolorallocate($img, 255, 0, 0);
     $yellow = imagecolorallocate($img, 255, 255, 0);
     imagefill($img, 0, 0, $red);
-    imagefilledrectangle($img,0,0,200,24, $yellow);
+    imagefilledrectangle($img,0,0, 400*$rate/100, 24, $yellow);
 
     // 3. 輸出(網頁/檔案)
     header('Content-type: image/jpeg');
