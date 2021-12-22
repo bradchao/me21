@@ -115,5 +115,10 @@
     }
     // class 車子 => class 法拉利
 
+    function connectSQL($dbname){
+        $mysqli = new mysqli('127.0.0.1', 'root', 'root', $dbname, 3306);
+        $mysqli->set_charset('utf-8');
+        return $mysqli;
+    }
 
 ?>
