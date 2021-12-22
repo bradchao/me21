@@ -2,6 +2,7 @@
     if (!isset($_REQUEST['account'])) header('Location: brad62.php');
 
     include 'bradutils.php';
+    session_start();
     $mysqli = connectSQL('iii');
 
     $account = $_REQUEST['account']; $passwd = $_REQUEST['passwd'];
@@ -20,13 +21,17 @@
 
         if (password_verify($passwd, $passwdHash)){
             // OK
+            $member = new Member($id, $account, $realname);
+            $_SESSION['member'] = $member;
             header('Location: brad69.php');
         }else{
             // XX
+            session_destroy();
             header('Location: brad62.php');
         }
     }else{
         // account not exist
+        session_destroy();
         header('Location: brad62.php');
     }
 ?>
