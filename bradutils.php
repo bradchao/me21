@@ -1,4 +1,19 @@
 <?php
+    class Member {
+        private $id, $account, $realname;
+        function __construct($id, $account, $realname){
+            $this->account = $account;
+            $this->id = $id;
+            $this->realname = $realname;
+        }
+        function getId(){return $this->id;}
+        function getAccount(){return $this->account;}
+        function getRealname(){return $this->realname;}
+        function setRealname($realname){
+            $this->realname = $realname;
+        }
+    }
+
     function checkTWId($id){
         // 長度為 10
         // A-Z x 1
