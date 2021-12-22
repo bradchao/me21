@@ -11,7 +11,8 @@
     }
 
     function afterCheck(){
-        console.log('OK');
+        //console.log('OK');
+        document.getElementById('mesg').innerHTML =  xhttp.responseText;
     }
 
 </script>
