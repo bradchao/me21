@@ -114,6 +114,7 @@
 
     }
     // class 車子 => class 法拉利
+    // localhost lookback => TCP/IP
 
     function connectSQL($dbname){
         $mysqli = new mysqli('127.0.0.1', 'root', 'root', $dbname, 3306);

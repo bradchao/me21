@@ -1,0 +1,23 @@
+<script>
+    const xhttp = new XMLHttpRequest();
+    function go(){
+        // Define a callback function
+        xhttp.onload = function() {
+            var here = document.getElementById('here');
+            here4.innerHTML = this.responseText;
+        }
+
+        // Send a request
+        xhttp.open("GET", "brad66.php");
+        xhttp.send();
+    }
+    // WebSocket
+
+</script>
+<input type="button" onclick="go()" value="Click Me" />
+<hr />
+<div id='here1'></div>
+<div id='here2'></div>
+<div id='here3'></div>
+<div id='here4'></div>
+<div id='here'></div>
